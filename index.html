@@ -4,9 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test Fetch git</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            // http://jsonplaceholder.typicode.com/users/1
+            // https://script.googleusercontent.com/macros/s/AKfycbyimayL5aSjgXT9jSWtyWiu_ag7SY6O4_jCzFjbNnlIvcP16K1iFNTN2gTXmayK21DIwQ/exec?r=A5
+            // fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=fbd756d6387c660e650b533ff585c70e&units=metric$0D$0A')
+            let url = 'https://script.google.com/macros/s/AKfycbyimayL5aSjgXT9jSWtyWiu_ag7SY6O4_jCzFjbNnlIvcP16K1iFNTN2gTXmayK21DIwQ/exec' 
+
+            let params = window.location.hash;
+            if(params != ""){
+                url += params.substr(1);
+            }
+            console.log(url);
+
+            fetch(url)
+            .then(res => res.json())
+            .then(data =>{
+                console.log(data);
+                // const name = data.name;
+                document.querySelector('body').innerHTML = data;
+            });
+
+
+        });
+
+        
+    </script>
 </head>
 <body>
-    <h1>Helllo</h1>
+    <h1>HelloTest00-08-11</h1>
 </body>
 </html>
